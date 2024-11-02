@@ -71,12 +71,12 @@ def scan_range(start, end, pointer_id):
         # Aggiorna la chiave corrente
         progress += 1
         attempt_count += 1
-
+        
         # Calcola la percentuale
         percentage = (progress - start) / total_range * 100
 
-        # Salva il progresso ogni 10.000 tentativi
-        if attempt_count % 100000 == 0:
+        # Salva il progresso ogni 10000 tentativi
+        if attempt_count % 5000 == 0:
             save_progress(pointer_id, progress)
 
             # Log del progresso con indirizzo pubblico, range e timestamp
