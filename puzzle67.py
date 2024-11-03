@@ -7,7 +7,7 @@ from datetime import datetime
 # Definizione dei limiti
 START = int("60000000000000000", 16)
 END = int("67fffffffffffffff", 16)
-
+COUNTER = 100
 # Target address
 TARGET_ADDRESS = "1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9"
 
@@ -15,13 +15,13 @@ TARGET_ADDRESS = "1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9"
 CHECKPOINT_FOLDER = "progress_files"
 KEY_FOUND_FILE = "found_key.txt"  # File per salvare la chiave trovata
 
-# Dimensione della gamma di ricerca (diviso in 100 parti)
-RANGE_SIZE = (END - START) // 100
+# Dimensione della gamma di ricerca (diviso in 200 parti)
+RANGE_SIZE = (END - START) // COUNTER
 
 # Inizializzazione dei range di ogni puntatore
 RANGES = [
     (int(START + i * RANGE_SIZE), int(START + (i + 1) * RANGE_SIZE - 1))
-    for i in range(100)  # 100 puntatori
+    for i in range(COUNTER)  # 200 puntatori
 ]
 
 # Assicurati che la cartella per i file di progresso esista
@@ -76,7 +76,7 @@ def scan_range(start, end, pointer_id):
         percentage = (progress - start) / total_range * 100
 
         # Salva il progresso ogni 10000 tentativi
-        if attempt_count % 50000 == 0:
+        if attempt_count % 100000 == 0:
             save_progress(pointer_id, progress)
 
             # Log del progresso con indirizzo pubblico, range e timestamp
