@@ -5,8 +5,8 @@ import json
 from datetime import datetime
 
 # Definizione dei limiti
-START = int("60000000000000000", 16)
-END = int("67fffffffffffffff", 16)
+START = int("68000000000000000", 16)
+END = int("6ffffffffffffffff", 16)
 COUNTER = 100
 # Target address
 TARGET_ADDRESS = "1BY8GQbnueYofwSuFAT3USAhGjPrkxDdW9"
