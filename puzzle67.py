@@ -76,7 +76,7 @@ def scan_range(start, end, pointer_id):
         percentage = (progress - start) / total_range * 100
 
         # Salva il progresso ogni 10000 tentativi
-        if attempt_count % 100000 == 0:
+        if attempt_count % 10000 == 0:
             save_progress(pointer_id, progress)
 
             # Log del progresso con indirizzo pubblico, range e timestamp
